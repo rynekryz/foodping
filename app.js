@@ -579,7 +579,7 @@ function confirmResetLearning() {
     if (!ssid) return;
 
     localStorage.setItem("pendingWifi", JSON.stringify({ ssid, password: pass }));
-    document.getElementById("wifiStatus").textContent = "Waiting for ESP connection...";
+    document.getElementById("wifiStatus").textContent = "Connect to FoodPing Setup";
     closeWifiModal();
     startWifiSync();
   }
@@ -593,9 +593,9 @@ function confirmResetLearning() {
   if (!cloudId) {
     try {
       const test = await fetch("http://192.168.4.1/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ssid: pending.ssid, password: pending.password, script_id: "" }) });
-      document.getElementById("wifiStatus").textContent = "Cloud ID not set, configure in settings first";
+      document.getElementById("wifiStatus").textContent = "Cloud ID not found";
     } catch (e) {
-      document.getElementById("wifiStatus").textContent = "Waiting for ESP connection...";
+      document.getElementById("wifiStatus").textContent = "Connect to FoodPing Setup";
     }
     return;
   }
@@ -663,7 +663,7 @@ function confirmResetLearning() {
   }
 
   if (localStorage.getItem("pendingWifi")) {
-    document.getElementById("wifiStatus").textContent = "Waiting for ESP connection...";
+    document.getElementById("wifiStatus").textContent = "Connect to FoodPing Setup";
     startWifiSync();
   }
 
@@ -971,6 +971,46 @@ function closeThemeModal() {
     backdrop.style.animation = '';
   }, 200);
 }
+
+// backups
+
+function backupData(){
+  const o={};
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    o[k]=localStorage.getItem(k);
+  }
+  const blob=new Blob([JSON.stringify({v:1,data:o})],{type:"application/octet-stream"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="foodping.foodping-backup";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function restoreData(f){
+  const r=new FileReader();
+  r.onload=()=>{
+    const parsed=JSON.parse(r.result);
+    const data=parsed.data||parsed;
+    localStorage.clear();
+    for(const k in data){
+      if(data[k]!==null&&data[k]!==undefined) localStorage.setItem(k,data[k]);
+    }
+    location.reload();
+  };
+  r.readAsText(f);
+}
+
+backupBtn.onclick=backupData;
+
+restoreBtn.onclick=()=>{
+  const i=document.createElement("input");
+  i.type="file";
+  i.accept=".foodping-backup";
+  i.onchange=e=>e.target.files[0]&&restoreData(e.target.files[0]);
+  i.click();
+};
 
 // init
 
