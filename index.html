@@ -117,6 +117,13 @@
                         </label>
                      </div>
                      <div class="settings-divider"></div>
+                     <div class="settings-row" onclick="openThemeModal()">
+                        <span class="material-symbols-outlined settings-icon">palette</span>
+                        <span class="settings-row-label">Themes</span>
+                        <span class="settings-row-value" id="themeDisplay">Default</span>
+                        <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+                     </div>
+                     <div class="settings-divider"></div>
                      <div class="settings-row" onclick="openWifiModal()">
                         <span class="material-symbols-outlined settings-icon">wifi</span>
                         <span class="settings-row-label">Device Wi-Fi Setup</span>
@@ -198,7 +205,9 @@
             <div class="page-content">
                <div class="info">
                   <div class="info-icon-container">
-                     <img src="icon.png" alt="FoodPing Icon" class="info-icon">
+                     <span class="material-symbols-outlined info-icon">
+                     calendar_meal_2
+                     </span>
                   </div>
                   <div class="info-text">
                      <div class="app-title">FoodPing</div>
@@ -305,8 +314,50 @@
             </div>
          </div>
       </div>
+      <div id="themeModal" style="display:none;">
+         <div id="themeBackdrop" onclick="closeThemeModal()"></div>
+         <div id="themeBox">
+            <div id="themeTitle">Themes</div>
+            <div id="themeList">
+               <div class="theme-option" onclick="applyTheme('strawberry')" id="theme-strawberry">
+                  <div class="theme-swatch" style="background: rgb(240, 182, 193)"></div>
+                  <span class="theme-name">Strawberry Cupcake</span>
+                  <span class="material-symbols-outlined theme-check" id="check-strawberry">check</span>
+               </div>
+               <div class="theme-divider"></div>
+               <div class="theme-option" onclick="applyTheme('white')" id="theme-white">
+                  <div class="theme-swatch" style="background: rgb(230, 230, 230)"></div>
+                  <span class="theme-name">Steamed Bun</span>
+                  <span class="material-symbols-outlined theme-check" id="check-white">check</span>
+               </div>
+               <div class="theme-divider"></div>
+               <div class="theme-option" onclick="applyTheme('mint')" id="theme-mint">
+                  <div class="theme-swatch" style="background: rgb(170, 230, 210)"></div>
+                  <span class="theme-name">Mint Breeze</span>
+                  <span class="material-symbols-outlined theme-check" id="check-mint">check</span>
+               </div>
+               <div class="theme-divider"></div>
+               <div class="theme-option" onclick="applyTheme('coco')" id="theme-coco">
+                  <div class="theme-swatch" style="background: rgb(210, 180, 140)"></div>
+                  <span class="theme-name">Coco Cream</span>
+                  <span class="material-symbols-outlined theme-check" id="check-coco">check</span>
+               </div>
+               <div class="theme-divider"></div>
+               <div class="theme-option" onclick="applyTheme('void')" id="theme-void">
+                  <div class="theme-swatch" style="background: rgb(30, 30, 35)"></div>
+                  <span class="theme-name">The Void</span>
+                  <span class="material-symbols-outlined theme-check" id="check-void">check</span>
+               </div>
+            </div>
+            <div id="themeDivider"></div>
+            <div id="themeActions">
+               <button onclick="closeThemeModal()">Close</button>
+            </div>
+         </div>
+      </div>
       <script src="app.js"></script>
       <script src="notifs.js"></script>
       <script src="cloud.js"></script>
+      <script></script>
    </body>
 </html>
