@@ -9,10 +9,34 @@
   font-weight: 500;
 }
 
+*, *::before, *::after {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
 body {
   background: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   font-size: 1rem;
+  will-change: background-color, color;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+body.theme-transitioning,
+body.theme-transitioning *,
+body.theme-transitioning *::before,
+body.theme-transitioning *::after {
+  transition:
+    background-color var(--theme-transition-duration, 350ms) ease,
+    color var(--theme-transition-duration, 350ms) ease,
+    border-color var(--theme-transition-duration, 350ms) ease,
+    border-radius var(--theme-transition-duration, 350ms) ease,
+    box-shadow var(--theme-transition-duration, 350ms) ease !important;
 }
 
 .pallete {
@@ -26,6 +50,13 @@ body {
   --md-sys-color-on-surface:           rgb(120, 60, 80);
   --md-sys-color-outline:              rgb(255, 182, 193);
   --md-sys-color-surface-container:    rgb(255, 230, 240);
+  --md-sys-shadow-settings-icon:       0 2px 6px rgba(255, 105, 180, 0.2);
+  --md-sys-shadow-switch-thumb:        0 2px 4px rgba(255, 105, 180, 0.15);
+  --md-sys-shadow-modal:               0 8px 32px rgba(0, 0, 0, 0.12);
+  --md-sys-color-scrim:                rgba(0, 0, 0, 0.08);
+  --md-sys-color-input-border:        rgba(255, 210, 220, 0.8);
+  --md-sys-color-input-background:    rgb(255, 240, 246);
+  --md-sys-shadow-home-card:          0 0 0 2px rgba(240, 182, 193, 0.15);
 }
 
 #home {
@@ -96,7 +127,7 @@ h1 {
   transform: scale(0.9);
   transform-origin: top;
   border: 3px dashed var(--md-sys-color-primary);
-  box-shadow: 0 0 0 2px rgba(240, 182, 193, 0.15);
+  box-shadow: var(--md-sys-shadow-home-card);
 }
 
 #home .card label { font-weight: bold; }
@@ -111,14 +142,14 @@ input {
   margin: 0.5rem 0;
   padding: 0.75rem;
   border-radius: 1rem;
-  border: 2px solid rgba(255, 210, 220, 0.8);
-  background: rgb(255, 240, 246);
+  border: 2px solid var(--md-sys-color-input-border);
+  background: var(--md-sys-color-input-background);
   color: var(--md-sys-color-on-surface);
 }
 
 input:focus {
   outline: none;
-  border: 2px solid rgba(255, 210, 220, 0.8);
+  border: 2px solid var(--md-sys-color-input-border);
 }
 
 #foodTable {
@@ -250,7 +281,14 @@ input:focus {
 .info-icon {
   width: 6.25rem;
   height: 6.25rem;
+  font-size: 6.25rem;
+  line-height: 1;
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
   border-radius: 1.5rem;
+  color: var(--md-sys-color-primary-container);
 }
 
 .app-title {
@@ -260,7 +298,7 @@ input:focus {
   color: var(--md-sys-color-on-surface);
   position: relative;
   z-index: 2;
-  transform: translateY(-3.125rem);
+  transform: translateY(-2rem);
 }
 
 .creator {
@@ -269,7 +307,7 @@ input:focus {
   margin-bottom: 1.25rem;
   position: relative;
   z-index: 2;
-  transform: translateY(-3rem);
+  transform: translateY(-1.8rem);
 }
 
 .another-info {
@@ -317,6 +355,11 @@ input:focus {
   z-index: 1;
 }
 
+#home h1 {
+  height: 4rem;
+  line-height: 1.2;
+}
+
 .settings-row-danger { color: var(--md-sys-color-primary); }
 
 .settings-group { margin-bottom: 1.75rem; }
@@ -358,7 +401,7 @@ input:focus {
   flex-shrink: 0;
   padding: 0.25rem;
   background: var(--md-sys-color-primary) !important;
-  box-shadow: 0 2px 6px rgba(255, 105, 180, 0.2);
+  box-shadow: var(--md-sys-shadow-settings-icon);
 }
 
 .settings-row-label {
@@ -418,13 +461,13 @@ input:focus {
   top: 0.125rem;
   left: 0.125rem;
   transition: transform 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
-  box-shadow: 0 2px 4px rgba(255, 105, 180, 0.15);
+  box-shadow: var(--md-sys-shadow-switch-thumb);
 }
 
 .switch input:checked + .switch-track { background: var(--md-sys-color-primary); }
 .switch input:checked + .switch-track::before { transform: translateX(1.25rem); }
 
-#customAlert, #resetLearningModal, #cloudIdModal, #wifiModal {
+#customAlert, #resetLearningModal, #cloudIdModal, #wifiModal, #themeModal {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -435,10 +478,10 @@ input:focus {
 
 #cloudIdModal, #wifiModal { display: none; }
 
-#customAlertBackdrop, #resetLearningBackdrop, #cloudIdBackdrop, #timePickerBackdrop, #datePickerBackdrop, #wifiBackdrop {
+#customAlertBackdrop, #resetLearningBackdrop, #cloudIdBackdrop, #timePickerBackdrop, #datePickerBackdrop, #wifiBackdrop, #themeBackdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.08);
+  background: var(--md-sys-color-scrim);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   animation: alertFadeIn 0.32s ease forwards;
@@ -508,7 +551,7 @@ input:focus {
   background: var(--md-sys-color-outline);
 }
 
-#cloudIdBox, #wifiBox {
+#cloudIdBox, #wifiBox, #themeBox {
   position: relative;
   width: min(16.875rem, 90vw);
   background: var(--md-sys-color-surface-container);
@@ -518,7 +561,7 @@ input:focus {
   animation: alertPopIn 0.3s ease;
 }
 
-#cloudIdTitle, #wifiTitle{
+#cloudIdTitle, #wifiTitle, #themeTitle {
   font-size: 1.0625rem;
   font-weight: 600;
   padding: 1.25rem 1rem 0.25rem;
@@ -547,9 +590,12 @@ input:focus {
   margin-bottom: 1rem;
 }
 
-#cloudUrlActions, #wifiActions { display: flex; }
+#cloudUrlActions, #wifiActions, #themeActions { display: flex; }
+#themeActions {
+  justify-content: center;
+}
 
-#cloudUrlActions button, #wifiActions button {
+#cloudUrlActions button, #wifiActions button, #themeActions button {
   flex: 1;
   padding: 0.75rem;
   border: none;
@@ -558,7 +604,7 @@ input:focus {
   color: var(--md-sys-color-on-surface);;
 }
 
-#cloudUrlActions button:active, #wifiActions button:active {
+#cloudUrlActions button:active, #wifiActions button:active, #themeActions button:active {
   background: var(--md-sys-color-primary-container);
 }
 
@@ -800,4 +846,84 @@ i.fa-solid {
 
 .wifi-eye:active {
   opacity: 1;
+}
+
+#themeList {
+  background: var(--md-sys-color-surface-container);
+  margin: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: none;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  background: var(--md-sys-color-surface);
+  transition: border-radius 0.8s cubic-bezier(0.2, 0, 0, 1);
+  text-align: left;
+  border-radius: 0.48rem;
+  width: 100%;
+}
+
+.theme-option:first-child {
+  border-radius: 1rem 1rem 0.25rem 0.25rem;
+}
+
+.theme-option:last-child {
+  border-radius: 0.25rem 0.25rem 1rem 1rem;
+}
+
+.theme-option:first-child:last-child {
+  border-radius: 1rem;
+}
+
+.theme-option:hover {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, var(--md-sys-color-surface-container));
+  border-radius: 1rem;
+}
+
+.theme-option:active,
+.theme-option.selected {
+  background: var(--md-sys-color-primary-container);
+}
+
+.theme-swatch {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid var(--md-sys-color-outline);
+}
+
+.theme-name {
+  flex: 1;
+  font-size: 0.75rem;
+  color: var(--md-sys-color-on-surface);
+  opacity: 0.6;
+}
+
+.theme-check {
+  font-size: 1.25rem;
+  color: var(--md-sys-color-primary);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.theme-check.visible {
+  opacity: 1;
+}
+
+.theme-divider {
+  height: 1px;
+  background: var(--md-sys-color-outline-variant);
+  margin: 0;
+}
+
+#themeDivider {
+  height: 1px;
+  background: var(--md-sys-color-outline-variant);
 }
