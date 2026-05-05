@@ -394,20 +394,20 @@ statusCell.style.cssText = 'display: flex; align-items: center; gap: 0.4rem; jus
 
 if (diffDays > 3) {
   statusCell.innerHTML = `
-    <span style="color: #7bc99a; text-align: right;">${diffDays} days remaining</span>
-    <i class="fa-solid fa-circle-check" style="color: #7bc99a; flex-shrink: 0;"></i>`;
+    <span style="color: #7bc99a; text-align: right; max-width: 80px;">${diffDays} days remaining</span>
+    <i class="fa-solid fa-circle-check" style="color: #7bc99a; flex-shrink: 0; align-self: center;"></i>`;
 } else if (diffDays > 0) {
   statusCell.innerHTML = `
-    <span style="color: #f0b97a; text-align: right;">${diffDays} days remaining</span>
-    <i class="fa-solid fa-circle-exclamation" style="color: #f0b97a; flex-shrink: 0;"></i>`;
+    <span style="color: #f0b97a; text-align: right; max-width: 80px;">${diffDays} days remaining</span>
+    <i class="fa-solid fa-circle-exclamation" style="color: #f0b97a; flex-shrink: 0; align-self: center;"></i>`;
 } else if (diffDays === 0) {
   statusCell.innerHTML = `
-    <span style="color: #f28b8b; text-align: right;">Expired Today</span>
-    <i class="fa-solid fa-circle-xmark" style="color: #f28b8b; flex-shrink: 0;"></i>`;
+    <span style="color: #f28b8b; text-align: right; max-width: 80px;">Expired Today</span>
+    <i class="fa-solid fa-circle-xmark" style="color: #f28b8b; flex-shrink: 0; align-self: center;"></i>`;
 } else {
   statusCell.innerHTML = `
-    <span style="color: #f28b8b; text-align: right;">Expired</span>
-    <i class="fa-solid fa-circle-xmark" style="color: #f28b8b; flex-shrink: 0;"></i>`;
+    <span style="color: #f28b8b; text-align: right; max-width: 80px;">Expired</span>
+    <i class="fa-solid fa-circle-xmark" style="color: #f28b8b; flex-shrink: 0; align-self: center;"></i>`;
 }
 
     const btnRow = table.insertRow();
