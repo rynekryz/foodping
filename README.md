@@ -40,7 +40,8 @@
 - WiFi setup for ESP integration
 - Cloud ID linking for external sync
 - Progressive Web App (installable on mobile)
-- Offline support via service worker
+- Offline support
+- Backup and restore
 - Md3 expressive inspired
 - etc.
 
