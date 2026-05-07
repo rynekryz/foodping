@@ -99,6 +99,7 @@
                         <th>Status</th>
                      </tr>
                   </table>
+                  <button class="md-btn" onclick="deleteAllExpired()">Delete All Expired</button>
                </div>
             </div>
          </main>
@@ -222,16 +223,16 @@
                         <span class="material-symbols-outlined settings-chevron">chevron_right</span>
                      </div>
                      <div class="settings-divider"></div>
-                     <div class="settings-row">
+                     <div class="settings-row" id="rowDev">
                         <span class="material-symbols-outlined settings-icon">code</span>
                         <span class="settings-row-label">Developer</span>
                         <span id="devs" class="settings-row-value">Izatifoodie</span>
                      </div>
                      <div class="settings-divider"></div>
-                     <div class="settings-row">
+                     <div class="settings-row" id="rowDesigner">
                         <span class="material-symbols-outlined settings-icon">format_paint</span>
                         <span class="settings-row-label">UI Designer</span>
-                        <span class="settings-row-value">Z.</span>
+                        <span class="settings-row-value">Zenlixir</span>
                      </div>
                   </div>
                </div>
