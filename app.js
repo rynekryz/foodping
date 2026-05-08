@@ -255,6 +255,7 @@ function closeTimePicker(save) {
 // choose date
 
 function openDatePicker() {
+  if (navigator.vibrate) navigator.vibrate(32);
   document.getElementById('datePicker').style.display = 'flex';
 
   const now = new Date();
@@ -495,6 +496,7 @@ function saveFood() {
 let learnedIndex = 0;
 
 function setRandomFood() {
+  if (navigator.vibrate) navigator.vibrate(32);
   const input = document.getElementById('foodName');
   if (!isLearningEnabled()) {
     input.value = defaultFoods[Math.floor(Math.random() * defaultFoods.length)];
@@ -796,6 +798,12 @@ function greetUser() {
            current.includes('Good Evening') ||
            current.includes('Good Night');
   };
+  
+  if (hour >= 0 && hour < 4) {
+    setTimeout(() => {
+      if (!isBusy) showMessage("Shouldn't you<br>be sleeping?", 'bedtime');
+    }, 7000);
+  }
 
   if (navigator.getBattery) {
     navigator.getBattery().then(battery => {
@@ -811,6 +819,20 @@ function greetUser() {
       if (battery.charging) showMessage('Yummy!', 'bolt');
     });
   }
+  
+  let idleTimer = null;
+
+  const resetIdle = () => {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => {
+      if (!isBusy && iconsAtOriginal()) {
+        showMessage('Still there?', 'sentiment_calm');
+      }
+    }, 120000);
+  };
+
+  document.addEventListener('touchstart', resetIdle);
+  resetIdle();
 
   let shakeIndex = 0;
   let lastShake = 0;
