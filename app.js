@@ -1435,6 +1435,12 @@ function cachePosts(posts) {
 
 function clearFeedCache() {
   localStorage.removeItem(FEED_CACHE_KEY);
+
+  if ('caches' in window) {
+    caches.keys().then(names =>
+      Promise.all(names.map(name => caches.delete(name)))
+    );
+  }
 }
 
 function mergeAndDedupe(cached, fresh) {
