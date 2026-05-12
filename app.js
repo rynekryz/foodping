@@ -1305,6 +1305,7 @@ function backupData() {
   const o = {};
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
+     if (k === 'feedCache_v1') continue; 
     o[k] = localStorage.getItem(k);
   }
   const now = new Date();
@@ -1680,5 +1681,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('rowDev').addEventListener('click', () => openLinkAlert('Izatifoodie', 'https://github.com/Izatifoodie'));
 document.getElementById('rowDesigner').addEventListener('click', () => openLinkAlert('Zenlixir', 'https://github.com/Zenlixir'));
+
 greetUser();
 initTheme();
