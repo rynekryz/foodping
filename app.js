@@ -708,13 +708,13 @@ function initDevsEasterEgg() {
   const el = document.getElementById('devs');
   if (!el) return;
   let toggled = false;
-  Object.assign(el.style, { fontSize: '15px', color: 'var(--md-sys-color-on-surface)', opacity: '0.5', transition: 'opacity 0.3s' });
+  Object.assign(el.style, {transition: 'opacity 0.3s' });
   el.addEventListener('click', (e) => {
     e.stopPropagation();
     el.style.opacity = 0;
     setTimeout(() => {
       toggled = !toggled;
-      el.textContent = toggled ? 'Zenlixir' : 'Izatifoodie';
+      el.textContent = toggled ? 'Ryne' : 'Izatifoodie';
       el.style.opacity = 0.5;
     }, 300);
   });
@@ -1763,6 +1763,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById('rowDev').addEventListener('click', () => openLinkAlert('Izatifoodie', 'https://github.com/Izatifoodie'));
-document.getElementById('rowDesigner').addEventListener('click', () => openLinkAlert('Zenlixir', 'https://github.com/Zenlixir'));
+document.getElementById('rowDesigner').addEventListener('click', () => openLinkAlert('rynekryz', 'https://github.com/rynekryz'));
 greetUser();
 initTheme();
