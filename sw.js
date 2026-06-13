@@ -1,16 +1,16 @@
-const CACHE_NAME = 'foodpingg-v1';
+const CACHE_NAME = 'foodping-v1';
 const ASSETS = [
-  '/FoodPingg/',
-  '/FoodPingg/index.html',
-  '/FoodPingg/ui.css',
-  '/FoodPingg/app.js',
-  '/FoodPingg/badge.png',
-  '/FoodPingg/cloud.js',
-  '/FoodPingg/empty.png',
-  '/FoodPingg/icon.png',
-  '/FoodPingg/site.webmanifest',
-  '/FoodPingg/404.html',
-  '/FoodPingg/sw.js',
+  '/foodping/',
+  '/foodping/index.html',
+  '/foodping/ui.css',
+  '/foodping/app.js',
+  '/foodping/badge.png',
+  '/foodping/cloud.js',
+  '/foodping/empty.png',
+  '/foodping/icon.png',
+  '/foodping/site.webmanifest',
+  '/foodping/404.html',
+  '/foodping/sw.js',
 ];
 
 self.addEventListener('install', e => {
@@ -40,7 +40,7 @@ self.addEventListener('fetch', e => {
       .catch(() =>
         caches.match(e.request).then(cached => {
           if (cached) return cached;
-          return caches.match('/FoodPingg/404.html');
+          return caches.match('/foodping/404.html');
         })
       )
   );
@@ -52,7 +52,7 @@ self.addEventListener('notificationclick', event => {
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clients => {
       const existing = clients.find(c => 'focus' in c);
       if (existing) return existing.focus();
-      return self.clients.openWindow('/FoodPingg/');
+      return self.clients.openWindow('/foodping/');
     })
   );
 });
