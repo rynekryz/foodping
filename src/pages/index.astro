@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeBg from '../components/HomeBg.astro';
+import PageHome from '../components/PageHome.astro';
+import PageLogs from '../components/PageLogs.astro';
+import PageSettings from '../components/PageSettings.astro';
+import PageFeed from '../components/PageFeed.astro';
+import PageAbout from '../components/PageAbout.astro';
+import BottomNav from '../components/BottomNav.astro';
+import DatePicker from '../components/DatePicker.astro';
+import SmallModals from '../components/SmallModals.astro';
+import ThemeModal from '../components/ThemeModal.astro';
+import FontModal from '../components/FontModal.astro';
+import CreditsModal from '../components/CreditsModal.astro';
+import Alert from '../components/Alert.astro';
+import TimePicker from '../components/TimePicker.astro';
+---
+<Layout>
+  <HomeBg />
+  <div class="pages-container">
+    <PageHome />
+    <PageLogs />
+    <PageSettings />
+    <PageFeed />
+    <PageAbout />
+  </div>
+  <BottomNav />
+  <DatePicker />
+  <SmallModals />
+  <ThemeModal />
+  <FontModal />
+  <CreditsModal />
+  <Alert />
+  <TimePicker />
+
+  <script>
+    import '../scripts/main.js';
+  </script>
+</Layout>

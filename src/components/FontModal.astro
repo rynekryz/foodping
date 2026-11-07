@@ -1,0 +1,43 @@
+---
+const fonts = [
+  { key: 'default', family: "'Google Sans Flex', sans-serif", name: 'Google Sans Flex' },
+  { key: 'patrickhand', family: "'Patrick Hand', cursive", name: 'Patrick Hand' },
+  { key: 'gaegu', family: "'Gaegu', cursive", name: 'Gaegu' },
+  { key: 'monocraft', family: "'Monocraft', monospace", name: 'Monocraft' },
+  { key: 'jetbrains', family: "'JetBrains Mono', monospace", name: 'JetBrains Mono' },
+];
+---
+<div id="fontModal" style="display:none;">
+  <div id="fontBackdrop" data-action="closeFontModal"></div>
+  <div id="fontBox">
+    <div id="fontTitle">Font <i class="fa-solid fa-font"></i></div>
+    <div id="fontList">
+      {fonts.map((font, i) => (
+        <>
+          {i > 0 && <div class="font-divider" />}
+          <div class="font-option" data-action="applyFont" data-arg={font.key} id={`font-${font.key}`}>
+            <div class="font-main">
+              <span class="font-preview" style={`font-family: ${font.family};`}>Aa</span>
+              <span class="font-name" style={`font-family: ${font.family};`}>{font.name}</span>
+            </div>
+            <span class="material-symbols-outlined font-check" id={`check-font-${font.key}`}>check</span>
+          </div>
+        </>
+      ))}
+    </div>
+    <div id="fontSizeSection">
+       <div id="fontSizeHeader">
+          <span class="material-symbols-outlined" id="fontSizeIcon">format_size</span>
+          <div id="fontSizeInfo">
+             <span id="fontSizeLabel">Font size</span>
+             <span id="fontSizeValue">16</span>
+          </div>
+       </div>
+       <input type="range" id="fontSizeSlider" min="12" max="24" value="16" step="1">
+    </div>
+    <div id="fontDivider"></div>
+    <div id="fontActions">
+      <button data-action="closeFontModal">Close</button>
+    </div>
+  </div>
+</div>

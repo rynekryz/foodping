@@ -1,0 +1,56 @@
+---
+import '../styles/fontawesome-subset.css';
+import '../styles/ui.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'FoodPing' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const csp = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net",
+  "img-src 'self' data: https:",
+  "connect-src 'self' https://api.rss2json.com https://script.google.com https://*.googleusercontent.com http://192.168.4.1 http://esp32.local",
+  "worker-src 'self'",
+  "manifest-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'none'",
+].join('; ');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    {import.meta.env.PROD && <meta http-equiv="Content-Security-Policy" content={csp} />}
+    <meta name="referrer" content="no-referrer" />
+    <title>{title}</title>
+    <meta name="description" content="Simple food expiry tracker with smart reminders" />
+    <meta name="theme-color" content="#FFB6C1" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFB6C1" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="msapplication-navbutton-color" content="#FFB6C1" />
+    <meta name="msapplication-TileColor" content="#FFB6C1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="FoodPing" />
+    <link rel="icon" type="image/png" href={`${base}/icon.png`} />
+    <link rel="apple-touch-icon" href={`${base}/icon.png`} />
+    <link rel="manifest" href={`${base}/site.webmanifest`} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  </head>
+  <body class="pallete">
+    <slot />
+  </body>
+</html>

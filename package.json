@@ -1,0 +1,21 @@
+{
+  "name": "foodping",
+  "type": "module",
+  "version": "1.2.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "predev": "node scripts/fa-subset.mjs",
+    "dev": "astro dev",
+    "prebuild": "node scripts/fa-subset.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "7.0.0",
+    "astro": "^7.4.7"
+  }
+}

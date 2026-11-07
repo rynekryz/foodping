@@ -1,0 +1,25 @@
+<main class="page active" id="home">
+   <h1>FoodPing</h1>
+   <div class="page-content">
+      <div class="big-thing">
+         <span class="material-symbols-outlined home-ic">fork_spoon</span>
+      </div>
+      <div class="card">
+         <label>Food Name</label>
+         <div class="food-input-row">
+            <input type="text" id="foodName">
+            <button class="random-food-btn" data-action="setRandomFood">
+            <span class="material-icons-round">auto_awesome</span>
+            </button>
+         </div>
+         <label>Expiry Date</label>
+         <div class="date-input-row">
+            <input type="text" id="expiryDate" placeholder="DD/MM/YY">
+            <button class="date-pick-btn" data-action="openDatePicker">
+            <i class="fa-solid fa-calendar"></i>
+            </button>
+         </div>
+         <button class="md-btn" data-action="addFood">Add</button>
+      </div>
+   </div>
+</main>

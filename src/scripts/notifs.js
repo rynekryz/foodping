@@ -1,3 +1,5 @@
+import { getFoods, parseDate } from './lib/storage.js';
+
 const CHECK_INTERVAL = 15 * 1000;
 
 if ('Notification' in window && Notification.permission === 'default') {
@@ -12,13 +14,6 @@ if ('serviceWorker' in navigator) {
       }).catch(() => {});
     }
   });
-}
-
-function parseDateNotif(dateStr) {
-  const parts = dateStr.split('/');
-  let year = parseInt(parts[2]);
-  if (year < 100) year += 2000;
-  return new Date(year, parseInt(parts[1]) - 1, parseInt(parts[0]));
 }
 
 function showNotification(foodName, days, date) {
@@ -75,17 +70,25 @@ function isWithinNotifWindow() {
 function checkFoodExpiry() {
   if (!isWithinNotifWindow()) return;
 
-  const foods = JSON.parse(localStorage.getItem('foods')) || [];
+  const foods = getFoods();
   const now   = new Date();
   now.setHours(0, 0, 0, 0);
 
   foods.forEach(food => {
-    const diffDays = Math.ceil((parseDateNotif(food.date) - now) / (1000 * 60 * 60 * 24));
+    const diffDays = Math.ceil((parseDate(food.date) - now) / (1000 * 60 * 60 * 24));
     if (diffDays <= 3 && diffDays >= 0) {
       showNotification(food.name, diffDays, food.date);
     }
   });
 }
 
+function pruneNotified() {
+  const marker = `_${new Date().toDateString()}_`;
+  Object.keys(localStorage)
+    .filter(key => key.startsWith('notified_') && !key.includes(marker))
+    .forEach(key => localStorage.removeItem(key));
+}
+
+pruneNotified();
 checkFoodExpiry();
 setInterval(checkFoodExpiry, CHECK_INTERVAL);

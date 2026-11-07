@@ -1,16 +1,13 @@
-const CACHE_NAME = 'foodping-v1';
+import type { APIRoute } from 'astro';
+const SW_SOURCE = `const CACHE_NAME = 'foodping-v3';
+const BASE = '__BASE__';
 const ASSETS = [
-  '/foodping/',
-  '/foodping/index.html',
-  '/foodping/ui.css',
-  '/foodping/app.js',
-  '/foodping/badge.png',
-  '/foodping/cloud.js',
-  '/foodping/empty.png',
-  '/foodping/icon.png',
-  '/foodping/site.webmanifest',
-  '/foodping/404.html',
-  '/foodping/sw.js',
+  BASE,
+  BASE + 'icon.png',
+  BASE + 'badge.png',
+  BASE + 'empty.png',
+  BASE + 'site.webmanifest',
+  BASE + '404.html',
 ];
 
 self.addEventListener('install', e => {
@@ -28,19 +25,29 @@ self.addEventListener('activate', e => {
   );
   self.clients.claim();
 });
+const CACHEABLE_HOSTS = [
+  self.location.hostname,
+  'fonts.googleapis.com',
+  'fonts.gstatic.com',
+  'cdn.jsdelivr.net',
+];
 
 self.addEventListener('fetch', e => {
+  const url = new URL(e.request.url);
+  if (e.request.method !== 'GET' || !CACHEABLE_HOSTS.includes(url.hostname)) return;
   e.respondWith(
     fetch(e.request)
       .then(res => {
-        const copy = res.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(e.request, copy));
+        if (res.ok || res.type === 'opaque') {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(e.request, copy));
+        }
         return res;
       })
       .catch(() =>
         caches.match(e.request).then(cached => {
           if (cached) return cached;
-          return caches.match('/foodping/404.html');
+          return caches.match(BASE + '404.html');
         })
       )
   );
@@ -52,7 +59,7 @@ self.addEventListener('notificationclick', event => {
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clients => {
       const existing = clients.find(c => 'focus' in c);
       if (existing) return existing.focus();
-      return self.clients.openWindow('/foodping/');
+      return self.clients.openWindow(BASE);
     })
   );
 });
@@ -73,7 +80,7 @@ async function checkAndNotifyFromSW() {
 
   if (enabled === 'false') return;
 
-  const parts = alertTime.trim().split(/[\s:]+/);
+  const parts = alertTime.trim().split(/[\\s:]+/);
   let h       = parseInt(parts[0]);
   const m     = parseInt(parts[1]);
   const a     = (parts[2] || '').toUpperCase().trim();
@@ -94,17 +101,25 @@ async function checkAndNotifyFromSW() {
 
     if (diff <= 3 && diff >= 0) {
       const msg = diff === 0
-        ? `${food.name} expired hari ini!`
-        : `${food.name} hampir expired (${diff} hari lagi)`;
+        ? \`\${food.name} expired hari ini!\`
+        : \`\${food.name} hampir expired (\${diff} hari lagi)\`;
 
       self.registration.showNotification('FoodPing Reminder', {
         body: msg,
         icon: 'empty.png',
         badge: 'badge.png',
         vibrate: [200, 100, 200],
-        tag: `foodping_${food.name}_${today}_${alertTime}`,
+        tag: \`foodping_\${food.name}_\${today}_\${alertTime}\`,
         renotify: true
       });
     }
   });
 }
+`;
+
+export const GET: APIRoute = () => {
+  const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+  return new Response(SW_SOURCE.replace('__BASE__', base), {
+    headers: { 'Content-Type': 'application/javascript; charset=utf-8' },
+  });
+};

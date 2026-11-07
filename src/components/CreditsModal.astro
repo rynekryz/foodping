@@ -1,0 +1,71 @@
+---
+const credits = [
+  { url: 'https://fontawesome.com', name: 'Font Awesome 7', sub: 'by Fonticons | Free License' },
+  { url: 'https://fonts.google.com/specimen/Patrick+Hand', name: 'Patrick Hand', sub: 'by Google Fonts | OFL License' },
+  { url: 'https://fonts.google.com/specimen/Gaegu', name: 'Gaegu', sub: 'by Google Fonts | OFL License' },
+  { url: 'https://github.com/IdreesInc/Monocraft', name: 'Monocraft', sub: 'by IdreesInc | MIT License' },
+  { url: 'https://fonts.google.com/specimen/JetBrains+Mono', name: 'JetBrains Mono', sub: 'by JetBrains | OFL License' },
+  { url: 'https://fonts.google.com/icons', name: 'Material Symbols', sub: 'by Google | Apache 2.0 License' },
+  { url: 'https://fonts.google.com', name: 'Google Sans Flex', sub: 'by Google Fonts' },
+  { url: 'https://fonts.google.com/icons', name: 'Material Icons', sub: 'by Google | Apache 2.0 License' },
+  { url: 'https://m3.material.io', name: 'Material Design 3', sub: 'by Google | Design inspiration' },
+  { url: 'https://astro.build', name: 'Astro', sub: 'by Astro Technology Company | MIT License' },
+  { url: 'https://developers.google.com/apps-script', name: 'Google Apps Script', sub: 'by Google | Cloud sync backend' },
+  { url: 'https://rss2json.com', name: 'RSS2JSON', sub: 'by rss2json.com | Feed API' },
+  { url: 'https://blog.myfitnesspal.com', name: 'MyFitnessPal Blog', sub: 'Feed articles | Content by owner' },
+  { url: 'https://www.eatingwell.com', name: 'EatingWell', sub: 'Feed articles | Content by owner' },
+  { url: 'https://nutritionfacts.org', name: 'NutritionFacts', sub: 'Feed articles | Content by owner' },
+  { url: 'https://dontwastethecrumbs.com', name: "Don't Waste the Crumbs", sub: 'Feed articles | Content by owner' },
+  { url: 'https://www.skinnytaste.com', name: 'Skinnytaste', sub: 'Feed articles | Content by owner' },
+  { url: 'https://zerowastechef.com', name: 'Zero-Waste Chef', sub: 'Feed articles | Content by owner' },
+  { url: 'https://github.com/espressif/arduino-esp32', name: 'Arduino core for ESP32', sub: 'by Espressif | LGPL 2.1 License' },
+  { url: 'https://arduinojson.org', name: 'ArduinoJson', sub: 'by Benoit Blanchon | MIT License' },
+];
+
+const visible = 6;
+const first = credits.slice(0, visible);
+const rest = credits.slice(visible);
+---
+<div id="creditsModal" style="display:none;">
+  <div id="creditsBackdrop" data-action="closeCreditsModal"></div>
+  <div id="creditsBox">
+    <div id="creditsTitle">Credits <i class="fa-solid fa-book"></i></div>
+    <div id="creditsList">
+      {first.map((item, i) => (
+        <>
+          {i > 0 && <div class="credits-divider" />}
+          <div class="credits-item" data-action="openUrl" data-arg={item.url}>
+            <div class="credits-info">
+              <span class="credits-name">{item.name}</span>
+              <span class="credits-sub">{item.sub}</span>
+            </div>
+            <span class="material-symbols-outlined credits-link">open_in_new</span>
+          </div>
+        </>
+      ))}
+      <div id="creditsExtra" hidden>
+        {rest.map(item => (
+          <>
+            <div class="credits-divider" />
+            <div class="credits-item" data-action="openUrl" data-arg={item.url}>
+              <div class="credits-info">
+                <span class="credits-name">{item.name}</span>
+                <span class="credits-sub">{item.sub}</span>
+              </div>
+              <span class="material-symbols-outlined credits-link">open_in_new</span>
+            </div>
+          </>
+        ))}
+      </div>
+      <div class="credits-divider" />
+      <button id="creditsMore" class="credits-more" data-action="toggleCredits" aria-expanded="false">
+        <span class="credits-more-label">See more</span>
+        <span class="material-symbols-outlined">expand_more</span>
+      </button>
+    </div>
+    <div id="creditsDivider"></div>
+    <div id="creditsActions">
+      <button data-action="closeCreditsModal">Close</button>
+    </div>
+  </div>
+</div>

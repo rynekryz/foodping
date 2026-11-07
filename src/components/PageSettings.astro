@@ -1,0 +1,144 @@
+<main class="page" id="settings">
+   <h1>Settings</h1>
+   <div class="page-content">
+      <div class="settings-group">
+         <div class="settings-group-label">GENERAL</div>
+         <div class="settings-card">
+            <div class="settings-row">
+               <span class="material-symbols-outlined settings-icon">vibration</span>
+               <span class="settings-row-label">Haptic Feedback</span>
+               <label class="switch">
+               <input type="checkbox" id="hapticToggle">
+               <span class="switch-track"></span>
+               </label>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" data-action="openThemeModal">
+               <span class="material-symbols-outlined settings-icon">palette</span>
+               <span class="settings-row-label">Themes</span>
+               <span class="settings-row-value" id="themeDisplay">Default</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" data-action="openFontModal">
+               <span class="material-symbols-outlined settings-icon">font_download</span>
+               <span class="settings-row-label">Font</span>
+               <span class="settings-row-value" id="fontDisplay">Default</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" data-action="openWifiModal">
+               <span class="material-symbols-outlined settings-icon">wifi</span>
+               <span class="settings-row-label">Device Wi-Fi Setup</span>
+               <span class="settings-row-value" id="wifiStatus">Not configured</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" data-action="openCloudIdModal">
+               <span class="material-symbols-outlined settings-icon">cloud</span>
+               <span class="settings-row-label">Cloud Sync</span>
+               <span class="settings-row-value" id="cloudIdDisplay">Not set</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+         </div>
+      </div>
+      <div class="settings-group">
+         <div class="settings-group-label">NOTIFICATIONS</div>
+         <div class="settings-card">
+            <div class="settings-row" id="notifTimeRow" data-action="openTimePicker">
+               <span class="material-symbols-outlined settings-icon">notifications</span>
+               <span class="settings-row-label">Alert Time</span>
+               <span class="settings-row-value" id="notifTimeDisplay">8:00 AM</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row">
+               <span class="material-symbols-outlined settings-icon">notifications_active</span>
+               <span class="settings-row-label">Notifications</span>
+               <label class="switch">
+               <input type="checkbox" id="notifToggle">
+               <span class="switch-track"></span>
+               </label>
+            </div>
+         </div>
+      </div>
+      <div class="settings-group">
+         <div class="settings-group-label">DATA MANAGEMENT</div>
+         <div class="settings-card">
+            <div class="settings-row" id="backupBtn">
+               <span class="material-symbols-outlined settings-icon">backup</span>
+               <span class="settings-row-label settings-row-danger">Backup</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" id="restoreBtn">
+               <span class="material-symbols-outlined settings-icon">restore</span>
+               <span class="settings-row-label settings-row-danger">Restore</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" data-action="confirmReset">
+               <span class="material-symbols-outlined settings-icon">delete_forever</span>
+               <span class="settings-row-label settings-row-danger">Reset All Data</span>
+               <span class="material-symbols-outlined settings-chevron">error</span>
+            </div>
+         </div>
+      </div>
+      <div class="settings-group">
+         <div class="settings-group-label">EXPERIMENTAL</div>
+         <div class="settings-card">
+            <div class="settings-row">
+               <span class="material-icons-round settings-icon">rss_feed</span>
+               <span class="settings-row-label">Feed Page</span>
+               <label class="switch">
+               <input type="checkbox" id="feeds">
+               <span class="switch-track"></span>
+               </label>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row">
+               <span class="material-icons-round settings-icon">auto_awesome</span>
+               <span class="settings-row-label">Smart Suggestions</span>
+               <label class="switch">
+               <input type="checkbox" id="neuralLearning">
+               <span class="switch-track"></span>
+               </label>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" data-action="openResetLearningModal">
+               <span class="material-symbols-outlined settings-icon">delete_forever</span>
+               <span class="settings-row-label settings-row-danger">Forget everything</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+         </div>
+      </div>
+      <div class="settings-group">
+         <div class="settings-group-label">ABOUT</div>
+         <div class="settings-card">
+            <div class="settings-row">
+               <span class="material-symbols-outlined settings-icon">calendar_meal_2</span>
+               <span class="settings-row-label">FoodPing</span>
+               <span class="settings-row-value">v1.2 (120)</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" data-action="openCreditsModal">
+               <span class="material-symbols-outlined settings-icon">info</span>
+               <span class="settings-row-label">Credits</span>
+               <span class="material-symbols-outlined settings-chevron">chevron_right</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" id="rowDev">
+               <span class="material-symbols-outlined settings-icon">code</span>
+               <span class="settings-row-label">Developer</span>
+               <span id="devs" class="settings-row-value">Izatifoodie</span>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="settings-row" id="rowDesigner">
+               <span class="material-symbols-outlined settings-icon">format_paint</span>
+               <span class="settings-row-label">UI Designer</span>
+               <span class="settings-row-value">Ryne</span>
+            </div>
+         </div>
+      </div>
+   </div>
+</main>

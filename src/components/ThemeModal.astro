@@ -1,0 +1,36 @@
+---
+const themes = [
+  { key: 'strawberry', icon: 'fa-solid fa-heart', color: 'rgb(240, 182, 193)', name: 'Strawberry Cupcake' },
+  { key: 'tomato', icon: 'fa-solid fa-cube', color: 'rgb(220, 70, 60)', name: 'Tomato Jelly' },
+  { key: 'honey', icon: 'fa-solid fa-jar', color: 'rgb(240, 180, 60)', name: 'Honey Amber' },
+  { key: 'mint', icon: 'fa-solid fa-leaf', color: 'rgb(170, 230, 210)', name: 'Mint Breeze' },
+  { key: 'android', icon: 'fa-brands fa-android', color: 'rgb(164, 198, 57)', name: 'Android Green' },
+  { key: 'blueberry', icon: 'fa-solid fa-circle-dot', color: 'rgb(100, 120, 200)', name: 'Blueberry Muffin' },
+  { key: 'amethyst', icon: 'fa-solid fa-gem', color: 'rgb(155, 110, 200)', name: 'Amethyst Shard' },
+  { key: 'coco', icon: 'fa-solid fa-mug-hot', color: 'rgb(210, 180, 140)', name: 'Coco Cream' },
+  { key: 'white', icon: 'fa-solid fa-cloud', color: 'rgb(230, 230, 230)', name: 'Steamed Bun' },
+  { key: 'void', icon: 'fa-solid fa-moon', color: 'rgb(30, 30, 35)', name: 'The Void' },
+];
+---
+<div id="themeModal" style="display:none;">
+  <div id="themeBackdrop" data-action="closeThemeModal"></div>
+  <div id="themeBox">
+    <div id="themeTitle">Themes <i class="fa-solid fa-palette"></i></div>
+    <div id="themeList">
+      {themes.map((theme, i) => (
+        <>
+          {i > 0 && <div class="theme-divider" />}
+          <div class="theme-option" data-action="applyTheme" data-arg={theme.key} id={`theme-${theme.key}`}>
+            <i class={`${theme.icon} theme-swatch`} style={`color: ${theme.color}`}></i>
+            <span class="theme-name">{theme.name}</span>
+            <span class="material-symbols-outlined theme-check" id={`check-${theme.key}`}>check</span>
+          </div>
+        </>
+      ))}
+    </div>
+    <div id="themeDivider"></div>
+    <div id="themeActions">
+      <button data-action="closeThemeModal">Close</button>
+    </div>
+  </div>
+</div>

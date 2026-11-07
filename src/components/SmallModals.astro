@@ -1,0 +1,51 @@
+<div id="resetLearningModal" style="display:none;">
+   <div id="resetLearningBackdrop"></div>
+   <div id="resetLearningBox">
+      <div id="resetLearningTitle">Reset?</div>
+      <div id="resetLearningMsg">This will delete all learned food data.</div>
+      <div class="alert-btn-divider"></div>
+      <button class="alert-action-btn" data-action="closeResetLearningModal">Cancel</button>
+      <div class="alert-btn-divider"></div>
+      <button class="alert-action-btn" data-action="confirmResetLearning" style="color: var(--md-sys-color-primary);">Reset</button>
+   </div>
+</div>
+<div id="cloudIdModal" style="display:none;">
+   <div id="cloudIdBackdrop"></div>
+   <div id="cloudIdBox">
+      <div id="cloudIdTitle">Cloud Sync</div>
+      <div id="cloudIdContent">
+         <label for="cloudUsrInput">Username</label>
+         <input id="cloudUsrInput" placeholder="Anything">
+         <label for="cloudIdInput">Cloud Sync ID</label>
+         <input id="cloudIdInput" placeholder="Sheets development ID">
+      </div>
+      <div id="cloudUrlDivider"></div>
+      <div id="cloudUrlActions">
+         <button id="cloudUrlCancelBtn" data-action="closeCloudIdModal">Cancel</button>
+         <button id="cloudUrlSaveBtn" data-action="saveCloudId">Save</button>
+      </div>
+   </div>
+</div>
+<div id="wifiModal" style="display:none;">
+   <div id="wifiBackdrop"></div>
+   <div id="wifiBox">
+      <div id="wifiTitle">Device Wi-Fi Setup</div>
+      <div id="wifiContent">
+         <label for="wifiSsid">WiFi Name</label>
+         <input id="wifiSsid" placeholder="SSID">
+         <label for="wifiPass">WiFi Password</label>
+         <div class="wifi-pass-wrap">
+            <input id="wifiPass" type="password" placeholder="Password">
+            <span class="material-symbols-outlined wifi-eye" data-action="toggleWifiPass">
+            visibility
+            </span>
+         </div>
+         <button class="md-btn" data-action="resetWifi">Reset WiFi</button>
+      </div>
+      <div id="wifiDivider"></div>
+      <div id="wifiActions">
+         <button data-action="closeWifiModal">Cancel</button>
+         <button data-action="saveWifi">Save</button>
+      </div>
+   </div>
+</div>
