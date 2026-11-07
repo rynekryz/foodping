@@ -13,7 +13,7 @@ namespace {
 
 constexpr char AP_NAME[] = "FoodPing-Setup";
 constexpr char HOSTNAME[] = "esp32";
-constexpr char ALLOWED_ORIGIN[] = "https://rynekryz.github.io";
+constexpr char ALLOWED_ORIGIN[] = "https://rynekryz.github.io"; // your site
 constexpr char TIMEZONE[] = "<+08>-8";
 constexpr char NTP_PRIMARY[] = "pool.ntp.org";
 constexpr char NTP_SECONDARY[] = "time.google.com";
