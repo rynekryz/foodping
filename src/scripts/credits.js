@@ -27,5 +27,4 @@ export function toggleCredits() {
   extra.hidden = !expand;
   button.setAttribute('aria-expanded', String(expand));
   button.querySelector('.credits-more-label').textContent = expand ? 'See less' : 'See more';
-  button.querySelector('.material-symbols-outlined').textContent = expand ? 'expand_less' : 'expand_more';
 }

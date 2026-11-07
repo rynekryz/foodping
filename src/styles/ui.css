@@ -239,10 +239,12 @@ input:focus {
   font-size: .75rem;
   color: var(--md-sys-color-on-surface);
   border-radius: 1.5rem;
-  transition: all .35s ease;
+  transition: all .45s cubic-bezier(.3, 1.4, .6, 1);
 }
 
 .nav-item span.material-symbols-outlined { font-size: 1.5rem; }
+
+.nav-item:active { transform: scale(.88); }
 
 .nav-item.active {
   background: var(--md-sys-color-primary-container);
@@ -352,7 +354,11 @@ input:focus {
   padding: .75rem 1rem;
   min-height: 3.25rem;
   cursor: pointer;
+  transition: background .18s ease;
 }
+
+.settings-row:hover { background: color-mix(in srgb, var(--md-sys-color-on-surface) 5%, transparent); }
+.settings-row:active { background: color-mix(in srgb, var(--md-sys-color-on-surface) 10%, transparent); }
 
 .settings-icon {
   width: 1.875rem;
@@ -367,7 +373,10 @@ input:focus {
   padding: .25rem;
   background: var(--md-sys-color-primary) !important;
   box-shadow: var(--md-sys-shadow-settings-icon);
+  transition: transform .45s cubic-bezier(.3, 1.6, .6, 1);
 }
+
+.settings-row:active .settings-icon { transform: scale(.78) rotate(-6deg); }
 
 .settings-row-label { flex: 1; font-size: .875rem; color: var(--md-sys-color-on-surface); }
 .settings-row-value { font-size: .9375rem; color: var(--md-sys-color-on-surface); opacity: .5; }
@@ -464,11 +473,13 @@ input:focus {
   color: var(--md-sys-color-primary);
   cursor: pointer;
   font-family: "Google Sans Flex", system-ui, sans-serif;
+  transition: transform .35s cubic-bezier(.3, 1.6, .6, 1), background .15s ease, color .15s ease;
 }
 
 #customAlertBtn:active {
   background: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
+  transform: scale(.94);
 }
 
 .alert-action-btn {
@@ -479,9 +490,10 @@ input:focus {
   font-size: 1.0625rem;
   cursor: pointer;
   font-family: "Google Sans Flex", system-ui, sans-serif;
+  transition: transform .35s cubic-bezier(.3, 1.6, .6, 1), background .15s ease;
 }
 
-.alert-action-btn:active { background: var(--md-sys-color-outline); }
+.alert-action-btn:active { background: var(--md-sys-color-outline); transform: scale(.94); }
 .alert-btn-divider { height: .2px; background: var(--md-sys-color-outline); }
 
 #cloudIdBox, #wifiBox, #themeBox, #fontBox {
@@ -531,6 +543,7 @@ input:focus {
   background: none;
   cursor: pointer;
   color: var(--md-sys-color-on-surface);
+  transition: transform .35s cubic-bezier(.3, 1.6, .6, 1), background .15s ease;
 }
 
 #creditsActions button { border-radius: 1.5rem; }
@@ -538,6 +551,7 @@ input:focus {
 #cloudUrlActions button:active, #wifiActions button:active,
 #themeActions button:active, #fontActions button:active, #creditsActions button:active {
   background: var(--md-sys-color-primary-container);
+  transform: scale(.94);
 }
 
 #timePicker, #datePicker {
@@ -691,6 +705,7 @@ input:focus {
 
 i.fa-solid { font-size: 1.375rem; line-height: 1; vertical-align: middle; }
 
+@keyframes springIn   { 0% { opacity: 0; transform: scale(.85) translateY(10px); } 55% { opacity: 1; transform: scale(1.05) translateY(-3px); } 78% { transform: scale(.98) translateY(1px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 @keyframes alertFadeIn  { from { opacity: 0; } to { opacity: 1; } }
 @keyframes alertFadeOut { from { opacity: 1; } to { opacity: 0; } }
 @keyframes alertPopIn   { from { opacity: 0; transform: scale(1.15); } to { opacity: 1; transform: scale(1); } }
@@ -886,6 +901,7 @@ i.fa-solid { font-size: 1.375rem; line-height: 1; vertical-align: middle; }
 .credits-link { font-size: 1.1rem; color: var(--md-sys-color-on-surface); opacity: .4; }
 .credits-divider { height: 1px; background: var(--md-sys-color-outline-variant); margin: 0 .75rem; }
 #creditsExtra[hidden] { display: none; }
+#creditsExtra:not([hidden]) .credits-item { animation: springIn .5s cubic-bezier(.34, 1.56, .64, 1) both; animation-delay: calc(var(--i, 0) * .045s); }
 .credits-more {
   display: flex;
   align-items: center;
@@ -899,10 +915,11 @@ i.fa-solid { font-size: 1.375rem; line-height: 1; vertical-align: middle; }
   font: inherit;
   font-size: .85rem;
   cursor: pointer;
-  transition: opacity .15s ease;
+  transition: opacity .15s ease, transform .4s cubic-bezier(.3, 1.6, .6, 1);
 }
-.credits-more:active { opacity: .6; }
-.credits-more .material-symbols-outlined { font-size: 1.25rem; opacity: .6; }
+.credits-more:active { opacity: .6; transform: scale(.94); }
+.credits-more .material-symbols-outlined { font-size: 1.25rem; opacity: .6; transition: transform .45s cubic-bezier(.3, 1.6, .6, 1); }
+#creditsMore[aria-expanded="true"] .material-symbols-outlined { transform: rotate(-180deg); }
 
 #feedpage {
   overflow: hidden;

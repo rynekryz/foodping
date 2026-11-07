@@ -44,10 +44,10 @@ const rest = credits.slice(visible);
         </>
       ))}
       <div id="creditsExtra" hidden>
-        {rest.map(item => (
+        {rest.map((item, i) => (
           <>
             <div class="credits-divider" />
-            <div class="credits-item" data-action="openUrl" data-arg={item.url}>
+            <div class="credits-item" style={`--i:${i}`} data-action="openUrl" data-arg={item.url}>
               <div class="credits-info">
                 <span class="credits-name">{item.name}</span>
                 <span class="credits-sub">{item.sub}</span>
