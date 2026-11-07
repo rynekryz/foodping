@@ -48,6 +48,8 @@ export function initCloudSync() {
   cloudSync();
 }
 
+// cloud
+
 export function openCloudIdModal() {
   vibrate(32);
   document.getElementById('cloudIdInput').value = localStorage.getItem('cloud_id') || '';

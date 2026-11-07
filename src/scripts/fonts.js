@@ -1,6 +1,8 @@
 import { haptic } from './lib/haptic.js';
 import { openModal, closeModal } from './lib/modal.js';
 
+// fonts
+
 const FONT_SOURCES = {
   default: null,
   patrickhand: 'https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap',

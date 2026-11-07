@@ -113,6 +113,8 @@ function initHapticFeedback() {
   document.querySelectorAll('.settings-row').forEach(row => row.addEventListener('click', () => haptic(22)));
 }
 
+// sw
+
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
   const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
@@ -120,6 +122,8 @@ function registerServiceWorker() {
     .then(regs => Promise.all(regs.map(r => r.unregister())))
     .then(() => navigator.serviceWorker.register(`${base}sw.js`, { scope: base }));
 }
+
+// init
 
 initNav();
 initPickers();

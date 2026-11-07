@@ -1,6 +1,8 @@
 import { haptic } from './lib/haptic.js';
 import { openModal, closeModal } from './lib/modal.js';
 
+// themes
+
 const themes = {
   strawberry: {
     name: 'Strawberry Cupcake',

@@ -1,3 +1,5 @@
+// haptic (real)
+
 let hapticEnabled = localStorage.getItem('haptic') !== 'off';
 
 export const isHapticEnabled = () => hapticEnabled;

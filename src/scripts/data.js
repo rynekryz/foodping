@@ -7,6 +7,8 @@ import { isValidCloudId, cloudSync } from './cloud.js';
 const MAX_BACKUP_SIZE = 2 * 1024 * 1024;
 const BACKUP_KEYS = ['foods', 'foodsData', 'theme', 'selectedFont', 'fontSize', 'haptic', 'notifEnabled', 'notifTime', 'neuralLearning', 'feedEnabled', 'cloud_id', 'cloud_user'];
 
+// reset all
+
 export function confirmReset() {
   haptic(32);
   openAlert({

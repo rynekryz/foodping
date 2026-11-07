@@ -1,5 +1,7 @@
 import { haptic } from './lib/haptic.js';
 
+// idk me forgot but dont touch
+
 function buildDrum(el, items, selectedIndex) {
   el.innerHTML = items.map(item => `<div class="drum-item">${item}</div>`).join('');
   setTimeout(() => { el.scrollTop = selectedIndex * 44; }, 50);
@@ -8,6 +10,8 @@ function buildDrum(el, items, selectedIndex) {
 function getDrumIndex(el) {
   return Math.round(el.scrollTop / 44);
 }
+
+// choose time
 
 export function openTimePicker() {
   haptic(32);
@@ -53,6 +57,8 @@ export function closeTimePicker(save) {
   backdrop.style.animation = 'alertFadeOut 0.3s ease forwards';
   setTimeout(() => { picker.style.display = 'none'; }, 300);
 }
+
+// choose date
 
 export function openDatePicker() {
   if (navigator.vibrate) navigator.vibrate(32);

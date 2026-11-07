@@ -1,6 +1,6 @@
-import { haptic } from './lib/haptic.js';
+// nav
 
-const navOrder = ['home', 'logs', 'feedpage', 'settings', 'about'];
+import { haptic } from './lib/haptic.js'; = ['home', 'logs', 'feedpage', 'settings', 'about'];
 let currentPage = 'home';
 
 export function navigateTo(targetPage) {

@@ -1,6 +1,8 @@
 import { openModal, closeModal, openAlert } from './lib/modal.js';
 import { openExternal } from './lib/safe.js';
 
+// credits
+
 export function openCreditsModal() {
   openModal({ modalId: 'creditsModal', boxId: 'creditsBox', backdropId: 'creditsBackdrop' });
 }

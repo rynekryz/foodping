@@ -127,6 +127,8 @@ export function deleteAllExpired() {
   });
 }
 
+// if else ahh ai
+
 const defaultFoods = [
   "Apple","Banana","Carrot","Chicken Breast","Rice",
   "Milk","Eggs","Broccoli","Salmon","Cheese",

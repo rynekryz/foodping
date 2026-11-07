@@ -20,6 +20,8 @@ export function parseDate(dateStr) {
   return new Date(parseInt(y) + (parseInt(y) < 100 ? 2000 : 0), parseInt(m) - 1, parseInt(d));
 }
 
+// food data
+
 export function getFoods() {
   const foods = readJson('foods', []);
   if (!Array.isArray(foods)) return [];

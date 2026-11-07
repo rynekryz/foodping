@@ -1,6 +1,8 @@
 import { haptic } from './lib/haptic.js';
 import { htmlToText, safeUrl } from './lib/safe.js';
 
+// feeds
+
 const FEED_CACHE_KEY = 'feedCache_v1';
 
 const RSS_FEEDS = [

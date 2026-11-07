@@ -1,5 +1,7 @@
 import { haptic } from './haptic.js';
 
+// modal helpers
+
 export function openModal({ modalId, boxId, backdropId, duration = 350 }) {
   haptic(32);
   const modal = document.getElementById(modalId);
@@ -38,6 +40,8 @@ export function closeAlert() {
     document.getElementById('customAlertActions').innerHTML = '<button id="customAlertBtn">OK</button>';
   }, 200);
 }
+
+// alert
 
 export function openAlert({ title = 'FoodPing', msg, buttons }) {
   const actions = document.getElementById('customAlertActions');

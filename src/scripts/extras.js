@@ -1,6 +1,8 @@
 import { setLines } from './lib/safe.js';
 import { readJson } from './lib/storage.js';
 
+// hmm
+
 export function initDevsEasterEgg() {
   const el = document.getElementById('devs');
   if (!el) return;
@@ -16,6 +18,8 @@ export function initDevsEasterEgg() {
     }, 300);
   });
 }
+
+// debug
 
 function printLearnedFoods() {
   const sorted = Object.entries(readJson('foodsData', {})).sort((a, b) => b[1] - a[1]);
@@ -37,6 +41,8 @@ export function initLearnedDebug() {
 
 let shakeReady = false;
 setTimeout(() => { shakeReady = true; }, 5000);
+
+// greetings
 
 export function greetUser() {
   const h1 = document.querySelector('#home h1');

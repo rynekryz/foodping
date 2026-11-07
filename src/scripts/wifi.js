@@ -13,6 +13,8 @@ function getPendingWifi() {
   return pending;
 }
 
+// setup
+
 export function openWifiModal() {
   const saved = getPendingWifi();
   if (saved.ssid) document.getElementById('wifiSsid').value = saved.ssid;
