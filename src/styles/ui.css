@@ -429,8 +429,14 @@ input:focus {
   inset: 0;
   background: var(--md-sys-color-scrim);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   animation: alertFadeIn .32s ease forwards;
+}
+
+@supports (-webkit-backdrop-filter: blur(6px)) and (not (backdrop-filter: blur(6px))) {
+  #customAlertBackdrop, #resetLearningBackdrop, #cloudIdBackdrop,
+  #timePickerBackdrop, #datePickerBackdrop, #wifiBackdrop, #themeBackdrop, #fontBackdrop {
+    -webkit-backdrop-filter: blur(6px);
+  }
 }
 
 #customAlertBox, #resetLearningBox {
@@ -863,8 +869,11 @@ i.fa-solid { font-size: 1.375rem; line-height: 1; vertical-align: middle; }
   inset: 0;
   background: var(--md-sys-color-scrim);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   animation: alertFadeIn .32s ease forwards;
+}
+
+@supports (-webkit-backdrop-filter: blur(6px)) and (not (backdrop-filter: blur(6px))) {
+  #creditsBackdrop { -webkit-backdrop-filter: blur(6px); }
 }
 
 #creditsBox {

@@ -8,6 +8,5 @@ export default defineConfig({
   trailingSlash: 'ignore',
   build: {
     inlineStylesheets: 'always',
-    cssMinify: 'esbuild',
   },
 });
