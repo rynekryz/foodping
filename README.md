@@ -4,7 +4,7 @@
 <p>Simple food expiry tracker with smart reminders</p>
 <p>This repo are its software part, now built with <a href="https://astro.build">Astro 7</a>.</p>
 <p align="center">
-  <a href="https://github.com/rynekryz/foodping/stargazers"><img src="https://img.shields.io/github/stars/rynekryz/foodping?style=flat&logo=github&labelColor=5F5E5E&color=5F5E5E&logoColor=white&sort=semver" alt="GitHub stars" height="30"/></a>
+  <a href="https://github.com/rynekryz/foodping/stargazers"><img src="assets/badges/stars.svg" alt="GitHub stars" height="30"/></a>
   <img src="assets/badges/astro.svg" alt="Astro"/>
   <img src="assets/badges/javascript.svg" alt="JavaScript"/>
   <img src="assets/badges/arduino.svg" alt="Arduino"/>
