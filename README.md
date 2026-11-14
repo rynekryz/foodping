@@ -3,6 +3,12 @@
 <h1>FoodPing</h1>
 <p>Simple food expiry tracker with smart reminders</p>
 <p>This repo are its software part, now built with <a href="https://astro.build">Astro 7</a>.</p>
+<p align="center">
+  <a href="https://github.com/rynekryz/foodping/stargazers"><img src="https://img.shields.io/github/stars/rynekryz/foodping?style=flat&logo=github&labelColor=5F5E5E&color=5F5E5E&logoColor=white&sort=semver" alt="GitHub stars" height="30"/></a>
+  <img src="assets/badges/astro.svg" alt="Astro"/>
+  <img src="assets/badges/javascript.svg" alt="JavaScript"/>
+  <img src="assets/badges/arduino.svg" alt="Arduino"/>
+</p>
 
 <h1>Screenshots</h1>
 
@@ -111,6 +117,6 @@ scripts/           fa-subset.mjs - trims Font Awesome to the icons actually used
 <br>
 
 <div align="center">
-  <a href="DISCORD_INVITE"><img src="https://img.shields.io/badge/Discord-5A5A5A?style=for-the-badge&logo=discord&logoColor=white"/></a>
-  <a href="https://tiktok.com/@rynekryz"><img src="https://img.shields.io/badge/TikTok-5A5A5A?style=for-the-badge&logo=tiktok&logoColor=white"/></a>
+  <a href="https://discord.gg/YKhWXXhKmC"><img src="assets/badges/discord.svg" alt="Discord"/></a>
+  <a href="https://tiktok.com/@rynekryz"><img src="assets/badges/tiktok.svg" alt="TikTok"/></a>
 </div>
