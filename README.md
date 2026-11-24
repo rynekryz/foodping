@@ -23,7 +23,7 @@
 </p>
 
 <div align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-sparkles-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-sparkles-light.svg" width="100%" alt=""></picture>
 </div>
 
 ## Screenshots
@@ -61,7 +61,7 @@
 - etc.
 
 <div align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-wave-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-wave-light.svg" width="100%" alt=""></picture>
 </div>
 
 ## Technical Stack
@@ -74,7 +74,7 @@
 - **Build:** npm
 
 <div align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-sparkles-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-sparkles-light.svg" width="100%" alt=""></picture>
 </div>
 
 ## Development
@@ -127,11 +127,6 @@ FoodPing/
 ├── Device/
 └── scripts/
 ```
-
-<div align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
-</div>
-
 <!-- decor:bottom -->
 <div align="center">
 
