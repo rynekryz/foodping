@@ -1,4 +1,11 @@
 <div align="center">
+
+<!-- decor:top -->
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sky-banner-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sky-banner-light.svg" width="100%" alt="night sky"></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+<!-- /decor:top -->
+
 <img src="public/icon.png" width="160" height="160" style="display: block; margin: 0 auto"/>
 <h1>FoodPing</h1>
 <p>A simple food expiry tracker for your phone and an ESP32.</p>
@@ -15,7 +22,9 @@
   <a href="https://github.com/rynekryz/foodping"><img src="assets/badges/getgithub.svg" alt="Get it on GitHub" height="56"/></a>
 </p>
 
----
+<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+</div>
 
 ## Screenshots
 
@@ -28,7 +37,9 @@
 <img src="docs/screenshots/35803.png" width="30%" />
 </div>
 
----
+<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+</div>
 
 ## Features
 
@@ -49,7 +60,9 @@
 - Material 3 Expressive inspired
 - etc.
 
----
+<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+</div>
 
 ## Technical Stack
 
@@ -60,7 +73,9 @@
 - **Language:** JavaScript and C++
 - **Build:** npm
 
----
+<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+</div>
 
 ## Development
 
@@ -93,7 +108,9 @@ Setup: install ESP32 Arduino core 3.x and ArduinoJson 7, then copy the file in a
 
 The Apps Script `GET` should return JSON: `[{ "name": "Milk", "date": 1767225600000 }]` or `{ "foods": [...] }`.
 
----
+<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+</div>
 
 ## Project Structure
 
@@ -111,7 +128,19 @@ FoodPing/
 └── scripts/
 ```
 
----
+<div align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-dots-light.svg" width="100%" alt=""></picture>
+</div>
+
+<!-- decor:bottom -->
+<div align="center">
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-wave-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/divider-wave-light.svg" width="100%" alt=""></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-heart-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-heart-light.svg" width="60" alt="heart"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-sparkle-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-sparkle-light.svg" width="60" alt="sparkle"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-moon-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-moon-light.svg" width="60" alt="moon"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-flower-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-flower-light.svg" width="60" alt="flower"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-cat-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-cat-light.svg" width="60" alt="cat"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-ghost-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-ghost-light.svg" width="60" alt="ghost"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-lock-dark.svg"><img src="https://raw.githubusercontent.com/rynekryz/rynekryz/main/pixel-art/pink/sticker-lock-light.svg" width="60" alt="lock"></picture>
+
+</div>
+<!-- /decor:bottom -->
 
 <div align="center">
 <strong>Made with ♥︎ by Ryne</strong><br/>
